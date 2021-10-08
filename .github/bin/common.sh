@@ -229,7 +229,8 @@ prepareTemplates() {
     exit 1
   fi
 
-  $(cd ${OPERATOR_REPO}; make chectl-templ "SRC=${SRC_TEMPLATES}" "TARGET=${TARGET_TEMPLATES}")
+  local path=$(pwd)
+  cd ${OPERATOR_REPO}; make chectl-templ "SRC=${SRC_TEMPLATES}" "TARGET=${TARGET_TEMPLATES}"; cd "${path}"
 }
 
 deployEclipseCheStable(){
