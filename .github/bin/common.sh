@@ -229,9 +229,7 @@ prepareTemplates() {
     exit 1
   fi
 
-  pushd "${SRC_TEMPLATES}" || true
-  make chectl-templ "SRC=${SRC_TEMPLATES}" "TARGET=${TARGET_TEMPLATES}"
-  popd "${SRC_TEMPLATES}" || true
+  $(cd ${OPERATOR_REPO}; make chectl-templ "SRC=${SRC_TEMPLATES}" "TARGET=${TARGET_TEMPLATES}")
 }
 
 deployEclipseCheStable(){
